@@ -9,11 +9,12 @@ import UIKit
 
 class ViewController: UIViewController {
 
+   
     @IBOutlet weak var card: UIView!
     @IBOutlet weak var QuestionLabel: UILabel!
     @IBOutlet weak var parrotLabelText: UILabel!
     @IBOutlet weak var parrotButton: UIButton!
-    
+   
     @IBOutlet weak var monkeyButton: UIButton!
     
     @IBOutlet weak var ratButton: UIButton!
@@ -46,6 +47,11 @@ class ViewController: UIViewController {
        
     }
     
+    func updateFlascard(Question: String, Answer: String) {
+        QuestionLabel.text = Question
+        parrotLabelText.text = Answer
+    }
+    
     @IBAction func didTap02(_ sender: Any) {
         
         if(parrotLabelText.isHidden == false) {
@@ -64,6 +70,13 @@ class ViewController: UIViewController {
     }
     
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let navigationController = segue.destination as! UINavigationController
+        
+        let creationController = navigationController.topViewController as! CreationViewController
+        
+        creationController.flashcardsController = self
+    }
     
         
     
