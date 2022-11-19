@@ -13,11 +13,11 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FlashCard" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6TZ-ct-zDB">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6TZ-ct-zDB">
                                 <rect key="frame" x="56" y="162" width="272" height="141"/>
                                 <subviews>
                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Parrot🦜" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="noy-av-Ije">
@@ -43,6 +43,15 @@
                                             <outletCollection property="gestureRecognizers" destination="1w3-yo-rGu" appends="YES" id="zpT-4Y-fSo"/>
                                         </connections>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AaJ-B1-zda">
+                                        <rect key="frame" x="203" y="98" width="47" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="✏️"/>
+                                        <connections>
+                                            <segue destination="hUr-OJ-jpJ" kind="presentation" identifier="editSegue" id="klF-jR-QnZ"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <gestureRecognizers/>
@@ -147,6 +156,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Extra answer #1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OS0-T9-vte">
+                                <rect key="frame" x="69" y="320" width="254" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Extra answer #2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cuj-6s-kEu">
+                                <rect key="frame" x="69" y="398" width="254" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qc9-4J-SA7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -165,6 +186,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="answerTextField" destination="bmB-BT-e3r" id="p6X-n2-Ovt"/>
+                        <outlet property="extraAnswerOneTextField" destination="OS0-T9-vte" id="9CK-Os-HMz"/>
+                        <outlet property="extraAnswerTwoTextField" destination="cuj-6s-kEu" id="iB2-RE-ITj"/>
                         <outlet property="questionTextField" destination="UFT-l1-yxe" id="OBk-Tr-2U1"/>
                     </connections>
                 </viewController>
@@ -191,6 +214,9 @@
             <point key="canvasLocation" x="837.40458015267177" y="-26.056338028169016"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="klF-jR-QnZ"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

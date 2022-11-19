@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var QuestionLabel: UILabel!
     @IBOutlet weak var parrotLabelText: UILabel!
     @IBOutlet weak var parrotButton: UIButton!
-   
+    
     @IBOutlet weak var monkeyButton: UIButton!
     
     @IBOutlet weak var ratButton: UIButton!
@@ -38,6 +38,7 @@ class ViewController: UIViewController {
         ratButton.layer.borderColor = #colorLiteral(red: 0.7716639638, green: 0.7861241102, blue: 0.7780296206, alpha: 1)
         ratButton.layer.cornerRadius = 20
         // Do any additional setup after loading the view.
+        
     }
     
      
@@ -47,9 +48,14 @@ class ViewController: UIViewController {
        
     }
     
-    func updateFlascard(Question: String, Answer: String) {
+    func updateFlascard(Question: String, Answer: String, xtraAnswer1: String?, xtraAnswer2: String?) {
         QuestionLabel.text = Question
         parrotLabelText.text = Answer
+        
+        parrotButton.setTitle(Answer, for: .normal)
+        monkeyButton.setTitle(xtraAnswer1, for: .normal)
+        ratButton.setTitle(xtraAnswer2, for: .normal)
+        
     }
     
     @IBAction func didTap02(_ sender: Any) {
@@ -76,6 +82,11 @@ class ViewController: UIViewController {
         let creationController = navigationController.topViewController as! CreationViewController
         
         creationController.flashcardsController = self
+        if segue.identifier == "editSegue" {
+            creationController.initialQuestion = QuestionLabel.text
+            creationController.initialAnswer = parrotLabelText.text
+        }
+        
     }
     
         
